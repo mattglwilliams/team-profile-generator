@@ -71,15 +71,83 @@ const addToTeam = () => {
     ])
     .then((answer) => {
       if (answer.addTeamMember === "Engineer") {
-        console.log("Engineer", team);
-        // getEngineer();
+        getEngineer();
       } else if (answer.addTeamMember === "Intern") {
-        console.log("Intern", team);
-        // getIntern();
+        getIntern();
       } else if (answer.addTeamMember === "Exit") {
         console.log("Exited", team);
         // renderPage(team);
       }
+    });
+};
+
+const getEngineer = () => {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the name of the engineer?",
+      },
+      {
+        type: "input",
+        name: "engineerID",
+        message: "What is the ID number of the engineer?",
+      },
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is the email address of the engineer?",
+      },
+      {
+        type: "input",
+        name: "engineerGitHub",
+        message: "What is the GitHub username of the engineer?",
+      },
+    ])
+    .then((answers) => {
+      const engineer = new Engineer();
+      engineer.name = answers.engineerName;
+      engineer.email = answers.engineerEmail;
+      engineer.id = answers.engineerID;
+      engineer.github = answers.engineerGitHub;
+      team.push(engineer);
+      addToTeam();
+    });
+};
+
+const getIntern = () => {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the name of the intern?",
+      },
+      {
+        type: "input",
+        name: "internID",
+        message: "What is the ID number of the intern?",
+      },
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is the email address of the intern?",
+      },
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school does the intern attend?",
+      },
+    ])
+    .then((answers) => {
+      const intern = new Intern();
+      intern.name = answers.internName;
+      intern.email = answers.internEmail;
+      intern.id = answers.internID;
+      intern.school = answers.internSchool;
+      team.push(intern);
+      addToTeam();
     });
 };
 
