@@ -55,7 +55,6 @@ const getManager = () => {
       manager.id = answers.managerID;
       manager.phoneNumber = answers.managerNumber;
       team.push(manager);
-      console.log(team);
       addToTeam();
     });
 };
@@ -70,15 +69,16 @@ const addToTeam = () => {
         choices: ["Engineer", "Intern", "Exit"],
       },
     ])
-    .then(() => {
-      if (addToTeam.name === "Engineer") {
-        getEngineer();
-      }
-      if (addToTeam.name === "Intern") {
-        getIntern();
-      }
-      if (addToTeam.name === "Exit") {
-        renderPage();
+    .then((answer) => {
+      if (answer.addTeamMember === "Engineer") {
+        console.log("Engineer", team);
+        // getEngineer();
+      } else if (answer.addTeamMember === "Intern") {
+        console.log("Intern", team);
+        // getIntern();
+      } else if (answer.addTeamMember === "Exit") {
+        console.log("Exited", team);
+        // renderPage(team);
       }
     });
 };
