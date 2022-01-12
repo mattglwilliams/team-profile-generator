@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const utils = require("./utils");
 
 const Manager = require("./lib/manager");
 const Intern = require("./lib/intern");
@@ -55,7 +56,39 @@ const getManager = () => {
       manager.phoneNumber = answers.managerNumber;
       team.push(manager);
       console.log(team);
+      addToTeam();
     });
+};
+
+const addToTeam = () => {
+  return inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "addTeamMember",
+        message: "Would you like to add team member?",
+        choices: ["Engineer", "Intern", "Exit"],
+      },
+    ])
+    .then(() => {
+      if (addToTeam.name === "Engineer") {
+        getEngineer();
+      }
+      if (addToTeam.name === "Intern") {
+        getIntern();
+      }
+      if (addToTeam.name === "Exit") {
+        renderPage();
+      }
+    });
+};
+
+const renderPage = () => {
+  fs.writeFile("index.html", utils.generateHTML(team), (err) =>
+    err
+      ? console.log(err)
+      : console.log("Successfully created your team profile page!")
+  );
 };
 
 startApplication();
