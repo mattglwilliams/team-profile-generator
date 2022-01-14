@@ -1,6 +1,6 @@
 const team = require("./index");
 
-const generateHTML = (teamName, name, id, email, phoneNumber) => {
+const generateHTML = (name, email, id, number) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -14,7 +14,7 @@ const generateHTML = (teamName, name, id, email, phoneNumber) => {
   <body>
     <header>
       <nav>
-        <p>${teamName}</p>
+        <p></p>
       </nav>
     </header>
     <div class="container">
@@ -30,7 +30,7 @@ const generateHTML = (teamName, name, id, email, phoneNumber) => {
               Email:
               <a href="${email}">${email}</a>
             </li>
-            <li>Office Number: ${phoneNumber}</li>
+            <li>Office Number: ${number}</li>
           </ul>
         </div>
       </div>
