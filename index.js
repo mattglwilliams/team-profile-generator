@@ -52,7 +52,6 @@ const getManager = () => {
     ])
     .then((answers) => {
       const manager = new Manager();
-      manager.role = "Manager";
       manager.name = answers.managerName;
       manager.email = answers.managerEmail;
       manager.id = answers.managerID;
@@ -111,7 +110,6 @@ const getEngineer = () => {
     ])
     .then((answers) => {
       const engineer = new Engineer();
-      engineer.role = "Engineer";
       engineer.name = answers.engineerName;
       engineer.email = answers.engineerEmail;
       engineer.id = answers.engineerID;
@@ -147,7 +145,6 @@ const getIntern = () => {
     ])
     .then((answers) => {
       const intern = new Intern();
-      intern.role = "Intern";
       intern.name = answers.internName;
       intern.email = answers.internEmail;
       intern.id = answers.internID;
@@ -158,7 +155,7 @@ const getIntern = () => {
 };
 
 const renderPage = () => {
-  fs.writeFile("team.html", utils.generateHTML(team, teamName), (err) =>
+  fs.writeFile("team.html", utils.generateTeamCards(team), (err) =>
     err
       ? console.log(err)
       : console.log("Successfully created your team profile page!")
@@ -168,4 +165,3 @@ const renderPage = () => {
 startApplication();
 
 module.exports = team;
-module.exports = teamName;
