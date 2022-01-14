@@ -77,8 +77,6 @@ const addToTeam = () => {
       } else if (answer.addTeamMember === "Intern") {
         getIntern();
       } else if (answer.addTeamMember === "Exit") {
-        console.log("Exited", team);
-        console.log(teamName);
         renderPage(team);
       }
     });
