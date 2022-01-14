@@ -7,6 +7,7 @@ const Intern = require("./lib/intern");
 const Engineer = require("./lib/engineer");
 
 const team = [];
+const teamName = [];
 
 const startApplication = () => {
   return inquirer
@@ -19,7 +20,8 @@ const startApplication = () => {
       },
     ])
     .then((answer) => {
-      const teamName = answer.teamName;
+      const name = answer.teamName;
+      teamName.push(name);
       getManager();
     });
 };
@@ -50,6 +52,7 @@ const getManager = () => {
     ])
     .then((answers) => {
       const manager = new Manager();
+      manager.role = "Manager";
       manager.name = answers.managerName;
       manager.email = answers.managerEmail;
       manager.id = answers.managerID;
@@ -76,7 +79,8 @@ const addToTeam = () => {
         getIntern();
       } else if (answer.addTeamMember === "Exit") {
         console.log("Exited", team);
-        // renderPage(team);
+        console.log(teamName);
+        renderPage(team);
       }
     });
 };
@@ -107,6 +111,7 @@ const getEngineer = () => {
     ])
     .then((answers) => {
       const engineer = new Engineer();
+      engineer.role = "Engineer";
       engineer.name = answers.engineerName;
       engineer.email = answers.engineerEmail;
       engineer.id = answers.engineerID;
@@ -142,6 +147,7 @@ const getIntern = () => {
     ])
     .then((answers) => {
       const intern = new Intern();
+      intern.role = "Intern";
       intern.name = answers.internName;
       intern.email = answers.internEmail;
       intern.id = answers.internID;
@@ -152,7 +158,7 @@ const getIntern = () => {
 };
 
 const renderPage = () => {
-  fs.writeFile("index.html", utils.generateHTML(team), (err) =>
+  fs.writeFile("team.html", utils.generateHTML(team, teamName), (err) =>
     err
       ? console.log(err)
       : console.log("Successfully created your team profile page!")
@@ -160,3 +166,6 @@ const renderPage = () => {
 };
 
 startApplication();
+
+module.exports = team;
+module.exports = teamName;

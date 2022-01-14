@@ -1,7 +1,4 @@
-const team = require("./index");
 
-const generateHTML = (teamName, name, id, email, phoneNumber) => {
-  return `
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -14,29 +11,26 @@ const generateHTML = (teamName, name, id, email, phoneNumber) => {
   <body>
     <header>
       <nav>
-        <p>${teamName}</p>
+        <p>[object Object]</p>
       </nav>
     </header>
     <div class="container">
       <div class="card-wrapper">
         <div class="card-header">
-          <p class="name">${name}</p>
+          <p class="name">undefined</p>
           <p class="role">Manager</p>
         </div>
         <div class="card-body">
           <ul>
-            <li>ID: ${id}</li>
+            <li>ID: undefined</li>
             <li>
               Email:
-              <a href="${email}">${email}</a>
+              <a href="undefined">undefined</a>
             </li>
-            <li>Office Number: ${phoneNumber}</li>
+            <li>Office Number: undefined</li>
           </ul>
         </div>
       </div>
     </div>
   </body>
-</html>`;
-};
-
-module.exports = { generateHTML };
+</html>
