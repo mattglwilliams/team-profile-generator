@@ -155,7 +155,7 @@ const getIntern = () => {
 };
 
 const renderPage = () => {
-  fs.writeFile("team.html", utils.generateTeamCards(team), (err) =>
+  fs.writeFile("./dist/team.html", utils.generateTeamCards(team), (err) =>
     err
       ? console.log(err)
       : console.log("Successfully created your team profile page!")
