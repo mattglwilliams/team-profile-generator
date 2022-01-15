@@ -7,23 +7,9 @@ const Intern = require("./lib/intern");
 const Engineer = require("./lib/engineer");
 
 const team = [];
-const teamName = [];
 
 const startApplication = () => {
-  return inquirer
-    .prompt([
-      {
-        type: "input",
-        name: "teamName",
-        message:
-          "Welcome to the team profile generator. Please enter the name of your team:",
-      },
-    ])
-    .then((answer) => {
-      const name = answer.teamName;
-      teamName.push(name);
-      getManager();
-    });
+  getManager();
 };
 
 const getManager = () => {
