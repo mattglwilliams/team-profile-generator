@@ -1,4 +1,4 @@
-const team = require("./index");
+const team = require("../index");
 
 const getManager = function (manager) {
   return `

@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const utils = require("./utils");
+const utils = require("./src/utils");
 
 const Manager = require("./lib/manager");
 const Intern = require("./lib/intern");
