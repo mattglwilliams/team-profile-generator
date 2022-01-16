@@ -12,10 +12,10 @@ const getManager = function (manager) {
         <li>ID: ${manager.id}</li>
         <hr>
         <li>
-          Email: <a href="${manager.email}">${manager.email}</a>
+          Email: <a href="mailto:${manager.email}">${manager.email}</a>
         </li>
         <hr>
-        <li>Office Number: ${manager.phoneNumber}</li>
+        <li>Office Number: <h href="tel:${manager.phoneNumber}">${manager.phoneNumber}</a></li>
         <hr>
       </ul>
     </div>
@@ -36,10 +36,10 @@ const getEngineer = function (engineer) {
         <li>ID: ${engineer.id}</li>
         <hr>
         <li>
-          Email: <a href="${engineer.email}">${engineer.email}</a>
+          Email: <a href="mailto:${engineer.email}">${engineer.email}</a>
         </li>
         <hr>
-        <li>GitHub: <a href="https://github.com/${engineer.github}">https://github.com/${engineer.github}</a></li>
+        <li>GitHub: <a href="https://github.com/${engineer.github}" target="_blank">https://github.com/${engineer.github}</a></li>
         <hr>
       </ul>
     </div>
@@ -60,7 +60,7 @@ const getIntern = function (intern) {
         <li>ID: ${intern.id}</li>
         <hr>
         <li>
-          Email: <a href="${intern.email}">${intern.email}</a>
+          Email: <a href="mailto:${intern.email}">${intern.email}</a>
         </li>
         <hr>
         <li>School: ${intern.school}</li>
