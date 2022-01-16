@@ -1,5 +1,7 @@
+// Requiring the index.js file so we can access the data in the team array
 const team = require("../index");
 
+// Function to generate the HTML for the manager cards
 const getManager = function (manager) {
   return `
   <div class="card-wrapper">
@@ -23,6 +25,7 @@ const getManager = function (manager) {
   `;
 };
 
+// Function to generate the HTML for the engineer cards
 const getEngineer = function (engineer) {
   return `
   <div class="card-wrapper">
@@ -47,6 +50,7 @@ const getEngineer = function (engineer) {
   `;
 };
 
+// Function to generate the HTML for the intern cards
 const getIntern = function (intern) {
   return `
   <div class="card-wrapper">
@@ -71,6 +75,7 @@ const getIntern = function (intern) {
   `;
 };
 
+// Function to take the data collected, loop through it and generate the relevant cards
 const generateTeamCards = (data) => {
   teamArray = [];
 
@@ -98,6 +103,7 @@ const generateTeamCards = (data) => {
   return generatePage;
 };
 
+// Function to generate the overall HTML file.
 const generateHTML = (teamCards) => {
   return `<!DOCTYPE html>
   <html lang="en">

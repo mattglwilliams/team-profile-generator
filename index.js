@@ -1,3 +1,4 @@
+// Requiring needed modules
 const inquirer = require("inquirer");
 const fs = require("fs");
 const utils = require("./src/utils");
@@ -6,12 +7,11 @@ const Manager = require("./lib/manager");
 const Intern = require("./lib/intern");
 const Engineer = require("./lib/engineer");
 
+// Empty array to collect team data objects
 const team = [];
 
-const startApplication = () => {
-  getManager();
-};
-
+// Function to prompt the user for the manager information, save the object to the
+// team array.
 const getManager = () => {
   return inquirer
     .prompt([
@@ -47,6 +47,8 @@ const getManager = () => {
     });
 };
 
+// Function to ask the user if they want to add an engineer, intern or exit the app and
+// generate their HTML file.
 const addToTeam = () => {
   return inquirer
     .prompt([
@@ -68,6 +70,8 @@ const addToTeam = () => {
     });
 };
 
+// Function to prompt the user for the engineer information, save the object to the
+// team array.
 const getEngineer = () => {
   return inquirer
     .prompt([
@@ -103,6 +107,8 @@ const getEngineer = () => {
     });
 };
 
+// Function to prompt the user for the intern information, save the object to the
+// team array.
 const getIntern = () => {
   return inquirer
     .prompt([
@@ -138,6 +144,8 @@ const getIntern = () => {
     });
 };
 
+// Function to take the data from the team array and pass it to the generate team cards
+// function in the utils file to generate the HTML file.
 const renderPage = () => {
   fs.writeFile("./dist/team.html", utils.generateTeamCards(team), (err) =>
     err
@@ -146,6 +154,8 @@ const renderPage = () => {
   );
 };
 
-startApplication();
+// Calling the getManager function when the app is started
+getManager();
 
+// Exporting the team array so the data can be used in the utils.js file to generate the HTML file.
 module.exports = team;
